@@ -93,14 +93,14 @@
       "excerpts": [
         [
           "We evaluate SPECTRA",
-          "50 for gate calibration."
+          "two MimicGen tasks (Coffee and Threading)."
         ],
         [
           "We report task success rates",
           "independently generated scene configurations."
         ]
       ],
-      "text": "We evaluate SPECTRA on four ManiSkill (Mu et al., 2021) tasks (PegInsertionSide, PickCube, PlugCharger, and StackCube) and two MimicGen tasks (Coffee and Threading). Each task uses 100 demonstration episodes: 50 for policy training and 50 for gate calibration. We report task success rates on independently generated scene configurations.",
+      "text": "We evaluate SPECTRA on four ManiSkill (Mu et al., 2021) tasks (PegInsertionSide, PickCube, PlugCharger, and StackCube) and two MimicGen tasks (Coffee and Threading). We report task success rates on independently generated scene configurations.",
       "citation_corrections": [
         [
           "ManiSkill Mu et al. (2021) tasks",
@@ -121,10 +121,10 @@
       "excerpts": [
         [
           "We compare Diffusion Policy",
-          "force-conditioned full-spectrum policy."
+          "policies with full action support."
         ]
       ],
-      "text": "We compare Diffusion Policy (DP) and flow matching (FM) in action and DCT space. For each configuration, No Force uses vision and proprioception, Always-on Force adds force throughout execution, and Force Gating selects between force-blind and force-aware policies with full action support. SPECTRA jointly selects sensing and motion detail through a force-blind low-frequency policy and a force-conditioned full-spectrum policy.",
+      "text": "We compare Diffusion Policy (DP) and flow matching (FM) in action and DCT space. For each configuration, No Force uses vision and proprioception, Always-on Force adds force throughout execution, and Force Gating selects between force-blind and force-aware policies with full action support.",
       "text_corrections": [
         [
           " (Table 1)",
@@ -345,14 +345,14 @@
       "excerpts": [
         [
           "Table 1 shows",
-          "ties the best result on PlugCharger."
+          "DP and FM on all six tasks."
         ],
         [
           "PegInsertionSide remains",
           "40.0% for SPECTRA."
         ]
       ],
-      "text": "SPECTRA outperforms force-blind action-space DP and FM on all six tasks. It achieves the highest success rates on PickCube, StackCube, Coffee, and Threading, and ties the best result on PlugCharger. PegInsertionSide remains an exception: force-blind DCT-space FM achieves 45.0%, compared with 40.0% for SPECTRA.",
+      "text": "SPECTRA outperforms force-blind action-space DP and FM on all six tasks. PegInsertionSide remains an exception: force-blind DCT-space FM achieves 45.0%, compared with 40.0% for SPECTRA.",
       "text_corrections": [
         [
           "Table 1 shows that SPECTRA",
@@ -365,59 +365,18 @@
       "source_rects": [
         [
           5,
-          688,
-          734
-        ],
-        [
-          6,
-          466,
-          533
-        ]
-      ],
-      "source_text": "Matched comparisons reveal benefits from force feedback, which validate H1 (the value of force). On Threading, adding force raises action-space DP success from 7.5% to 50.0% and FM success from 25.0% to 52.5%. However, the same change reduces Coffee success from 77.5% to 62.5% for DP and from 65.0% to 50.0% for FM, motivating selective use of force. The improvement over always selecting the same fine policy supports H4 (learned policy selection) against the always-fine baseline: learned selection achieves higher success than using force-conditioned, full-spectrum prediction throughout execution. Generic force gating nevertheless provides mixed benefits: for DCT-space DP, it improves Threading success over always-on force from 67.5% to 77.5%, but reduces Coffee success from 75.0% to 57.5%. These results support the combined design of SPECTRA, which adapts force conditioning and action bandwidth together.",
-      "excerpts": [
-        [
-          "On Threading,",
-          "motivating selective use of force."
-        ],
-        [
-          "Generic force gating",
-          "Coffee success from 75.0% to 57.5%."
-        ]
-      ],
-      "text": "On Threading, adding force raises action-space DP success from 7.5% to 50.0% and FM success from 25.0% to 52.5%. However, the same change reduces Coffee success from 77.5% to 62.5% for DP and from 65.0% to 50.0% for FM, motivating selective use of force. Generic force gating nevertheless provides mixed benefits: for DCT-space DP, it improves Threading success over always-on force from 67.5% to 77.5%, but reduces Coffee success from 75.0% to 57.5%."
-    },
-    {
-      "type": "paragraph",
-      "source_rects": [
-        [
-          5,
           616,
           684
-        ],
-        [
-          5,
-          688,
-          734
-        ],
-        [
-          6,
-          466,
-          533
         ]
       ],
-      "source_text": "Table 1 shows that SPECTRA outperforms force-blind action-space DP and FM on all six tasks. It achieves the highest success rates on PickCube, StackCube, Coffee, and Threading, and ties the best result on PlugCharger. Its mean success rate is 65.8%, compared with 52.9% for always using the fine policy and 50.0% for the strongest generic force-gating baseline, corresponding to gains of 12.9 and 15.8 percentage points, respectively. PegInsertionSide remains an exception: force-blind DCT-space FM achieves 45.0%, compared with 40.0% for SPECTRA. Matched comparisons reveal benefits from force feedback, which validate H1 (the value of force). On Threading, adding force raises action-space DP success from 7.5% to 50.0% and FM success from 25.0% to 52.5%. However, the same change reduces Coffee success from 77.5% to 62.5% for DP and from 65.0% to 50.0% for FM, motivating selective use of force. The improvement over always selecting the same fine policy supports H4 (learned policy selection) against the always-fine baseline: learned selection achieves higher success than using force-conditioned, full-spectrum prediction throughout execution. Generic force gating nevertheless provides mixed benefits: for DCT-space DP, it improves Threading success over always-on force from 67.5% to 77.5%, but reduces Coffee success from 75.0% to 57.5%. These results support the combined design of SPECTRA, which adapts force conditioning and action bandwidth together.",
+      "source_text": "Table 1 shows that SPECTRA outperforms force-blind action-space DP and FM on all six tasks. It achieves the highest success rates on PickCube, StackCube, Coffee, and Threading, and ties the best result on PlugCharger. Its mean success rate is 65.8%, compared with 52.9% for always using the fine policy and 50.0% for the strongest generic force-gating baseline, corresponding to gains of 12.9 and 15.8 percentage points, respectively. PegInsertionSide remains an exception: force-blind DCT-space FM achieves 45.0%, compared with 40.0% for SPECTRA.",
       "excerpts": [
         [
           "Its mean success rate",
           "15.8 percentage points, respectively."
-        ],
-        [
-          "These results support",
-          "force conditioning and action bandwidth together."
         ]
       ],
-      "text": "SPECTRA’s mean success rate is 65.8%, compared with 52.9% for always using the fine policy and 50.0% for the strongest generic force-gating baseline, corresponding to gains of 12.9 and 15.8 percentage points, respectively. These results support the combined design of SPECTRA, which adapts force conditioning and action bandwidth together.",
+      "text": "SPECTRA’s mean success rate is 65.8%, compared with 52.9% for always using the fine policy and 50.0% for the strongest generic force-gating baseline, corresponding to gains of 12.9 and 15.8 percentage points, respectively.",
       "text_corrections": [
         [
           "Its mean success rate",
@@ -524,14 +483,10 @@
       "excerpts": [
         [
           "Table 2 shows",
-          "on both PickCube and Coffee."
-        ],
-        [
-          "Frequency-resolved prediction errors",
-          "preserving coarse-motion accuracy."
+          "leaves PlugCharger performance unchanged."
         ]
       ],
-      "text": "Normalization improves success on four of the five tasks and leaves PlugCharger performance unchanged. The largest gain is on StackCube, from 67.5% to 82.5%, followed by gains of 7.5 percentage points on both PickCube and Coffee. Frequency-resolved prediction errors are still needed to establish whether normalization improves fine-action learning while preserving coarse-motion accuracy.",
+      "text": "Normalization improves success on four of the five tasks and leaves PlugCharger performance unchanged.",
       "text_corrections": [
         [
           "Table 2 shows that normalization",
@@ -569,11 +524,11 @@
       "source_text": "We evaluate SPECTRA on an OpenArm robot equipped with a fixed camera and a wrist-mounted camera across five tasks: Jigglypuff placement, Coca-Cola placement, block stacking, wet-wipe extraction, and whiteboard erasing (Figure 4). For each task, we collect 80 demonstration episodes, using 40 for policy training and 40 for gate calibration. Coca-Cola placement additionally requires placing the can without an audible contact sound, making gentle placement part of the success criterion. We evaluate whiteboard erasing by the percentage of text removed and the remaining tasks by success rate. We compare against force-blind, action-space Diffusion Policy (DP) and flow matching (FM), with additional comparisons of force conditioning and action representation provided in the appendix.",
       "excerpts": [
         [
-          "For each task,",
+          "Coca-Cola placement additionally",
           "the remaining tasks by success rate."
         ]
       ],
-      "text": "For each task, we collect 80 demonstration episodes, using 40 for policy training and 40 for gate calibration. Coca-Cola placement additionally requires placing the can without an audible contact sound, making gentle placement part of the success criterion. We evaluate whiteboard erasing by the percentage of text removed and the remaining tasks by success rate."
+      "text": "Coca-Cola placement additionally requires placing the can without an audible contact sound, making gentle placement part of the success criterion. We evaluate whiteboard erasing by the percentage of text removed and the remaining tasks by success rate."
     },
     {
       "type": "figure",
@@ -604,10 +559,14 @@
       "excerpts": [
         [
           "Figure 5 shows",
+          "force-blind DP and FM on four of five tasks."
+        ],
+        [
+          "Jigglypuff placement is the exception:",
           "below FM’s 90%."
         ]
       ],
-      "text": "SPECTRA outperforms force-blind DP and FM on four of five tasks. Wet-wipe extraction reaches 100% success, compared with 50% for DP and 70% for FM; quiet Coca-Cola placement reaches 90%, versus 80% for both baselines. Whiteboard erasing removes 89.5% of the text, compared with 77.5% for DP and 68.5% for FM. Jigglypuff placement is the exception: SPECTRA achieves 80% success, exceeding DP but below FM’s 90%.",
+      "text": "SPECTRA outperforms force-blind DP and FM on four of five tasks. Jigglypuff placement is the exception: SPECTRA achieves 80% success, exceeding DP but below FM’s 90%.",
       "text_corrections": [
         [
           "Figure 5 shows that SPECTRA",

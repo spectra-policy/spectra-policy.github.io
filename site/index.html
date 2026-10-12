@@ -81,8 +81,8 @@
 <div class="section-body">
 <div id="simulation" class="evaluation-block" role="group" aria-labelledby="simulation-title">
 <h3 id="simulation-title">Simulation Performance</h3>
-<p>We evaluate SPECTRA on four ManiSkill (Mu et al., 2021) tasks (PegInsertionSide, PickCube, PlugCharger, and StackCube) and two MimicGen tasks (Coffee and Threading). Each task uses 100 demonstration episodes: 50 for policy training and 50 for gate calibration. We report task success rates on independently generated scene configurations.</p>
-<p>We compare Diffusion Policy (DP) and flow matching (FM) in action and DCT space. For each configuration, No Force uses vision and proprioception, Always-on Force adds force throughout execution, and Force Gating selects between force-blind and force-aware policies with full action support. SPECTRA jointly selects sensing and motion detail through a force-blind low-frequency policy and a force-conditioned full-spectrum policy.</p>
+<p>We evaluate SPECTRA on four ManiSkill (Mu et al., 2021) tasks (PegInsertionSide, PickCube, PlugCharger, and StackCube) and two MimicGen tasks (Coffee and Threading). We report task success rates on independently generated scene configurations.</p>
+<p>We compare Diffusion Policy (DP) and flow matching (FM) in action and DCT space. For each configuration, No Force uses vision and proprioception, Always-on Force adds force throughout execution, and Force Gating selects between force-blind and force-aware policies with full action support.</p>
 <figure><img src="static/media/policy-architectures.png" width="1191" height="354" alt="(a) No force; (b) Always-on force; (c) Force gating; (d) SPECTRA" loading="lazy" decoding="async"></figure>
 <figure class="simulation-table">
 <div class="table-scroll" role="region" aria-label="Simulation success rates, scroll horizontally on small screens" tabindex="0">
@@ -214,9 +214,8 @@
 </tr>
 </tbody>
 </table></div></figure>
-<p>SPECTRA outperforms force-blind action-space DP and FM on all six tasks. It achieves the highest success rates on PickCube, StackCube, Coffee, and Threading, and ties the best result on PlugCharger. PegInsertionSide remains an exception: force-blind DCT-space FM achieves 45.0%, compared with 40.0% for SPECTRA.</p>
-<p>On Threading, adding force raises action-space DP success from 7.5% to 50.0% and FM success from 25.0% to 52.5%. However, the same change reduces Coffee success from 77.5% to 62.5% for DP and from 65.0% to 50.0% for FM, motivating selective use of force. Generic force gating nevertheless provides mixed benefits: for DCT-space DP, it improves Threading success over always-on force from 67.5% to 77.5%, but reduces Coffee success from 75.0% to 57.5%.</p>
-<p>SPECTRA’s mean success rate is 65.8%, compared with 52.9% for always using the fine policy and 50.0% for the strongest generic force-gating baseline, corresponding to gains of 12.9 and 15.8 percentage points, respectively. These results support the combined design of SPECTRA, which adapts force conditioning and action bandwidth together.</p>
+<p>SPECTRA outperforms force-blind action-space DP and FM on all six tasks. PegInsertionSide remains an exception: force-blind DCT-space FM achieves 45.0%, compared with 40.0% for SPECTRA.</p>
+<p>SPECTRA’s mean success rate is 65.8%, compared with 52.9% for always using the fine policy and 50.0% for the strongest generic force-gating baseline, corresponding to gains of 12.9 and 15.8 percentage points, respectively.</p>
 </div>
 <div id="spectral-normalization" class="evaluation-block" role="group" aria-labelledby="spectral-normalization-title">
 <h3 id="spectral-normalization-title">Effect of Spectral Normalization</h3>
@@ -269,31 +268,52 @@
 <td><strong>82.5</strong></td>
 </tr>
 </tbody></table></div></figure>
-<p>Normalization improves success on four of the five tasks and leaves PlugCharger performance unchanged. The largest gain is on StackCube, from 67.5% to 82.5%, followed by gains of 7.5 percentage points on both PickCube and Coffee. Frequency-resolved prediction errors are still needed to establish whether normalization improves fine-action learning while preserving coarse-motion accuracy.</p>
+<p>Normalization improves success on four of the five tasks and leaves PlugCharger performance unchanged.</p>
 </div>
 <div id="real-robot" class="evaluation-block" role="group" aria-labelledby="real-robot-title">
 <h3 id="real-robot-title">Real-Robot Performance</h3>
 <p>We evaluate SPECTRA on an OpenArm robot equipped with a fixed camera and a wrist-mounted camera.</p>
-<p>For each task, we collect 80 demonstration episodes, using 40 for policy training and 40 for gate calibration. Coca-Cola placement additionally requires placing the can without an audible contact sound, making gentle placement part of the success criterion. We evaluate whiteboard erasing by the percentage of text removed and the remaining tasks by success rate.</p>
-<figure><img src="static/media/real-robot-results.png" width="1188" height="357" alt="Figure 5: Real-robot performance" loading="lazy" decoding="async"></figure>
-<p>SPECTRA outperforms force-blind DP and FM on four of five tasks. Wet-wipe extraction reaches 100% success, compared with 50% for DP and 70% for FM; quiet Coca-Cola placement reaches 90%, versus 80% for both baselines. Whiteboard erasing removes 89.5% of the text, compared with 77.5% for DP and 68.5% for FM. Jigglypuff placement is the exception: SPECTRA achieves 80% success, exceeding DP but below FM’s 90%.</p>
-<div class="task-videos" aria-label="Real-robot task excerpts">
+<p>Coca-Cola placement additionally requires placing the can without an audible contact sound, making gentle placement part of the success criterion. We evaluate whiteboard erasing by the percentage of text removed and the remaining tasks by success rate.</p>
+<div class="task-videos" aria-label="Real-robot task demonstrations">
   <figure class="task-video">
-    <figcaption id="wipe-video-title">Wet-wipe extraction</figcaption>
-    <video width="640" height="480" controls muted loop playsinline preload="none" data-play-in-view poster="static/videos/wipe-extraction.jpg" aria-labelledby="wipe-video-title">
-      <source src="static/videos/wipe-extraction.mp4" type="video/mp4">
+    <figcaption id="jigglypuff-placement-title">Jigglypuff placement</figcaption>
+    <video width="640" height="480" autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback tabindex="-1" data-play-in-view poster="static/videos/jigglypuff-placement.jpg" aria-labelledby="jigglypuff-placement-title">
+      <source src="static/videos/jigglypuff-placement.mp4?v=61a1f48533d2" type="video/mp4">
       Your browser does not support embedded video.
     </video>
   </figure>
   <figure class="task-video">
-    <figcaption id="whiteboard-video-title">Whiteboard erasing</figcaption>
-    <video width="640" height="480" controls muted loop playsinline preload="none" data-play-in-view poster="static/videos/whiteboard-erasing.jpg" aria-labelledby="whiteboard-video-title">
-      <source src="static/videos/whiteboard-erasing.mp4" type="video/mp4">
+    <figcaption id="coca-cola-placement-title">Coca-Cola placement</figcaption>
+    <video width="640" height="480" autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback tabindex="-1" data-play-in-view poster="static/videos/coca-cola-placement.jpg" aria-labelledby="coca-cola-placement-title">
+      <source src="static/videos/coca-cola-placement.mp4?v=06de8165c1e8" type="video/mp4">
+      Your browser does not support embedded video.
+    </video>
+  </figure>
+  <figure class="task-video">
+    <figcaption id="block-stacking-title">Block stacking</figcaption>
+    <video width="640" height="480" autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback tabindex="-1" data-play-in-view poster="static/videos/block-stacking.jpg" aria-labelledby="block-stacking-title">
+      <source src="static/videos/block-stacking.mp4?v=d735c2e92fb4" type="video/mp4">
+      Your browser does not support embedded video.
+    </video>
+  </figure>
+  <figure class="task-video">
+    <figcaption id="wipe-extraction-title">Wet-wipe extraction</figcaption>
+    <video width="640" height="480" autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback tabindex="-1" data-play-in-view poster="static/videos/wipe-extraction.jpg" aria-labelledby="wipe-extraction-title">
+      <source src="static/videos/wipe-extraction.mp4?v=b48b2fd34547" type="video/mp4">
+      Your browser does not support embedded video.
+    </video>
+  </figure>
+  <figure class="task-video">
+    <figcaption id="whiteboard-erasing-title">Whiteboard erasing</figcaption>
+    <video width="640" height="480" autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback tabindex="-1" data-play-in-view poster="static/videos/whiteboard-erasing.jpg" aria-labelledby="whiteboard-erasing-title">
+      <source src="static/videos/whiteboard-erasing.mp4?v=2a0965b9e3ec" type="video/mp4">
       Your browser does not support embedded video.
     </video>
   </figure>
 </div>
-<p class="video-note">8-second excerpts at original playback speed.</p>
+<p class="video-note">Task demonstration excerpts.</p>
+<figure><img src="static/media/real-robot-results.png" width="1188" height="357" alt="Figure 5: Real-robot performance" loading="lazy" decoding="async"></figure>
+<p>SPECTRA outperforms force-blind DP and FM on four of five tasks. Jigglypuff placement is the exception: SPECTRA achieves 80% success, exceeding DP but below FM’s 90%.</p>
 </div>
 </div>
 </section>

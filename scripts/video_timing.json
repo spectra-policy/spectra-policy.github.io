@@ -1,0 +1,50 @@
+{
+  "method": "Preserve source AVI playback timing and frame rate for every excerpt. Only reset the starting timestamp; no speed adjustment, frame-rate conversion, or telemetry-based retiming.",
+  "clips": [
+    {
+      "name": "jigglypuff-placement",
+      "timing_method": "source",
+      "source_duration_s": 4.533333,
+      "source_frame_rate": "15/1",
+      "output_frame_rate": "15/1",
+      "time_scale": 1.0,
+      "output_duration_s": 4.2
+    },
+    {
+      "name": "coca-cola-placement",
+      "timing_method": "source",
+      "source_duration_s": 8.933333,
+      "source_frame_rate": "15/1",
+      "output_frame_rate": "15/1",
+      "time_scale": 1.0,
+      "output_duration_s": 8.2
+    },
+    {
+      "name": "block-stacking",
+      "timing_method": "source",
+      "source_duration_s": 12.4,
+      "source_frame_rate": "15/1",
+      "output_frame_rate": "15/1",
+      "time_scale": 1.0,
+      "output_duration_s": 9.8
+    },
+    {
+      "name": "wipe-extraction",
+      "timing_method": "source",
+      "source_duration_s": 8.733333,
+      "source_frame_rate": "15/1",
+      "output_frame_rate": "15/1",
+      "time_scale": 1.0,
+      "output_duration_s": 7.733333
+    },
+    {
+      "name": "whiteboard-erasing",
+      "timing_method": "source",
+      "source_duration_s": 11.6,
+      "source_frame_rate": "15/1",
+      "output_frame_rate": "15/1",
+      "time_scale": 1.0,
+      "output_duration_s": 9.4
+    }
+  ]
+}

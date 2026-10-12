@@ -1,18 +1,35 @@
-// Start each excerpt once when it comes into view. Native controls remain available.
-// Keep posters and manual playback for visitors who prefer reduced motion.
+// Control-free, GIF-style loops. Stop offscreen playback and respect reduced motion.
 (() => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
   const videos = document.querySelectorAll('video[data-play-in-view]');
-  const observer = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      observer.unobserve(entry.target);
-      if (!reducedMotion.matches) entry.target.play().catch(() => {});
+  const visible = new Set();
+  const update = video => {
+    video.autoplay = !reducedMotion.matches;
+    if (reducedMotion.matches || document.hidden || !visible.has(video)) {
+      video.pause();
+    } else {
+      video.play().catch(() => {});
     }
-  }, { threshold: 0.25 });
-  videos.forEach(video => observer.observe(video));
-  reducedMotion.addEventListener('change', event => {
-    if (event.matches) videos.forEach(video => video.pause());
+  };
+  videos.forEach(video => {
+    video.controls = false;
+    video.muted = true;
+    video.loop = true;
+    video.autoplay = !reducedMotion.matches;
+    video.pause();
   });
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+        update(entry.target);
+      }
+    }, { threshold: 0.1 });
+    videos.forEach(video => observer.observe(video));
+  } else {
+    videos.forEach(video => { visible.add(video); update(video); });
+  }
+  reducedMotion.addEventListener('change', () => videos.forEach(update));
+  document.addEventListener('visibilitychange', () => videos.forEach(update));
 })();

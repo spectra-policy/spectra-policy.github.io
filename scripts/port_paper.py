@@ -174,42 +174,38 @@ architecture+=paragraph((1,688,734),(2,285,341),(3,605,630),(5,153,209),excerpts
     ('A gate uses recent force history','without manually labeled contact phases.'),
     ('This allows policy selection','as the interaction unfolds.')])
 simulation=paragraph((5,382,482),excerpts=[
-    ('We evaluate SPECTRA','50 for gate calibration.'),
+    ('We evaluate SPECTRA','two MimicGen tasks (Coffee and Threading).'),
     ('We report task success rates','independently generated scene configurations.')],
     citation_corrections=[('ManiSkill Mu et al. (2021) tasks','ManiSkill (Mu et al., 2021) tasks')])
 simulation+=paragraph((5,505,594),excerpts=[
-    ('We compare Diffusion Policy','force-conditioned full-spectrum policy.')],
+    ('We compare Diffusion Policy','policies with full action support.')],
     text_corrections=[(' (Table 1)','')])
 simulation+=figure('policy-architectures',6,[108,84,505,202],[436,458],
     alt='(a) No force; (b) Always-on force; (c) Force gating; (d) SPECTRA')
 simulation+=simulation_table()
 simulation+=paragraph((5,616,684),excerpts=[
-    ('Table 1 shows','ties the best result on PlugCharger.'),
+    ('Table 1 shows','DP and FM on all six tasks.'),
     ('PegInsertionSide remains','40.0% for SPECTRA.')],
     text_corrections=[('Table 1 shows that SPECTRA','SPECTRA')])
-simulation+=paragraph((5,688,734),(6,466,533),excerpts=[
-    ('On Threading,','motivating selective use of force.'),
-    ('Generic force gating','Coffee success from 75.0% to 57.5%.')])
-simulation+=paragraph((5,616,684),(5,688,734),(6,466,533),excerpts=[
-    ('Its mean success rate','15.8 percentage points, respectively.'),
-    ('These results support','force conditioning and action bandwidth together.')],
+simulation+=paragraph((5,616,684),excerpts=[
+    ('Its mean success rate','15.8 percentage points, respectively.')],
     text_corrections=[('Its mean success rate','SPECTRA’s mean success rate')])
 normalization=paragraph((6,555,645),excerpts=[
     ('We compare SPECTRA','DCT-space diffusion baselines.')])
 normalization+=normalization_table()
 normalization+=paragraph((6,555,645),excerpts=[
-    ('Table 2 shows','on both PickCube and Coffee.'),
-    ('Frequency-resolved prediction errors','preserving coarse-motion accuracy.')],
+    ('Table 2 shows','leaves PlugCharger performance unchanged.')],
     text_corrections=[('Table 2 shows that normalization','Normalization')])
 real=paragraph((7,533,612),excerpts=[
     ('We evaluate SPECTRA','a wrist-mounted camera.')])
 real+=paragraph((7,633,734),excerpts=[
-    ('For each task,','the remaining tasks by success rate.')])
+    ('Coca-Cola placement additionally','the remaining tasks by success rate.')])
+real+=(ROOT/'scripts/real_robot_videos.html').read_text()
 real+=figure('real-robot-results',9,[108,81,504,200],[209,241])
 real+=paragraph((8,599,689),excerpts=[
-    ('Figure 5 shows','below FM’s 90%.')],
+    ('Figure 5 shows','force-blind DP and FM on four of five tasks.'),
+    ('Jigglypuff placement is the exception:','below FM’s 90%.')],
     text_corrections=[('Figure 5 shows that SPECTRA','SPECTRA')])
-real+=(ROOT/'scripts/real_robot_videos.html').read_text()
 evaluation=''.join([
     evaluation_block('simulation','Simulation Performance',simulation),
     evaluation_block('spectral-normalization','Effect of Spectral Normalization',normalization),
@@ -238,4 +234,4 @@ manifest={'source_sha256':SOURCE_HASH,'scope':'Selected paper passages: abstract
 (ROOT/'paper-port-manifest.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n')
 assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()==SOURCE_HASH
 assert not list((ROOT/'site').rglob('*.pdf'))
-print('Generated curated project page with selected paper excerpts, 3 HTML results tables, paper figures, and 2 short videos.')
+print('Generated curated project page with selected paper excerpts, 3 HTML results tables, paper figures, and 5 task demonstration loops.')

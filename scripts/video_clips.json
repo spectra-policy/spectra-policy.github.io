@@ -1,0 +1,44 @@
+{
+  "clips": [
+    {
+      "name": "jigglypuff-placement",
+      "label": "Jigglypuff placement",
+      "source": "jigglypuff_pick_and_place_100_demos_varying_location/20260917_180852/chest_rgb_20260917_220853.avi",
+      "start": 0.2,
+      "duration": 4.2,
+      "observed_outcome": "Toy released into the orange container; the final frames show it resting inside."
+    },
+    {
+      "name": "coca-cola-placement",
+      "label": "Coca-Cola placement",
+      "source": "red_solo_cup/20260918_202552/chest_rgb_20260919_002552.avi",
+      "start": 0.3,
+      "duration": 8.2,
+      "observed_outcome": "Can placed upright on the plate and released. Silent-contact success cannot be verified from the RGB recording."
+    },
+    {
+      "name": "block-stacking",
+      "label": "Block stacking",
+      "source": "red_block_on_purple_stack/20260910_170047/chest_rgb_20260910_210047.avi",
+      "start": 2.4,
+      "duration": 9.8,
+      "observed_outcome": "Red block released on top of the purple block; the stack remains standing as the gripper withdraws."
+    },
+    {
+      "name": "wipe-extraction",
+      "label": "Wet-wipe extraction",
+      "source": "wet-wipe-extract/20260922_194134/chest_rgb_20260922_234134.avi",
+      "start": 0.3,
+      "duration": 7.7,
+      "observed_outcome": "Wipe pulled free of the container and released to its left."
+    },
+    {
+      "name": "whiteboard-erasing",
+      "label": "Whiteboard erasing",
+      "source": "erase-whiteboard/20260922_211608/chest_rgb_20260923_011609.avi",
+      "start": 0.4,
+      "duration": 9.4,
+      "observed_outcome": "Written text visibly erased and the gripper lifted away; no quantitative erasure score is inferred."
+    }
+  ]
+}

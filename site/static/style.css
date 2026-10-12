@@ -91,11 +91,12 @@ figcaption { margin: 12px 0 0; font-size: 14px; line-height: 1.5; text-align: ju
   figure { break-inside: avoid; }
 }
 
-/* One restrained pair of task excerpts, following the reference's video layout. */
-.task-videos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 24px 0 8px; }
-.task-videos .task-video { margin: 0; min-width: 0; }
+/* Five compact task loops, with the last row centered. */
+.task-videos { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin: 24px 0 8px; }
+.task-videos .task-video { flex: 0 1 calc((100% - 48px) / 3); margin: 0; min-width: 0; }
 .task-video figcaption { margin: 0 0 8px; font-size: 16px; text-align: center; }
-.task-video video { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; background: #000; }
+.task-video video { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; background: #000; pointer-events: none; }
 .video-note { margin: 8px 0 24px; font-size: 13px; text-align: center; color: #666; }
-@media (max-width: 600px) { .task-videos { grid-template-columns: 1fr; gap: 20px; } }
+@media (max-width: 900px) { .task-videos .task-video { flex-basis: calc((100% - 24px) / 2); } }
+@media (max-width: 600px) { .task-videos { gap: 20px; } .task-videos .task-video { flex-basis: 100%; } }
 @media print { .task-videos, .video-note { display: none; } }
