@@ -87,44 +87,31 @@
           5,
           382,
           482
-        ]
-      ],
-      "source_text": "We evaluate SPECTRA on four ManiSkill Mu et al. (2021) tasks (PegInsertionSide, PickCube, PlugCharger, and StackCube) and two MimicGen tasks (Coffee and Threading). Each task uses 100 demonstration episodes: 50 for policy training and 50 for gate calibration. Both suites run in MuJoCo, with ManiSkill tasks adapted to this simulator. Force-aware policies receive three-axis force and torque measurements from a simulated sensor between the arm and parallel-jaw gripper; MimicGen measurements are recovered by restoring recorded simulator states. ManiSkill additionally sums the 3D force magnitudes over all gripper contacts using mj_contactForce, giving seven force-related channels versus six for MimicGen. We report task success rates on independently generated scene configurations.",
-      "excerpts": [
-        [
-          "We evaluate SPECTRA",
-          "two MimicGen tasks (Coffee and Threading)."
         ],
-        [
-          "We report task success rates",
-          "independently generated scene configurations."
-        ]
-      ],
-      "text": "We evaluate SPECTRA on four ManiSkill (Mu et al., 2021) tasks (PegInsertionSide, PickCube, PlugCharger, and StackCube) and two MimicGen tasks (Coffee and Threading). We report task success rates on independently generated scene configurations.",
-      "citation_corrections": [
-        [
-          "ManiSkill Mu et al. (2021) tasks",
-          "ManiSkill (Mu et al., 2021) tasks"
-        ]
-      ]
-    },
-    {
-      "type": "paragraph",
-      "source_rects": [
         [
           5,
           505,
           594
         ]
       ],
-      "source_text": "We compare Diffusion Policy (DP) and flow matching (FM) in action and DCT space (Table 1). For each configuration, No Force uses vision and proprioception, Always-on Force adds force throughout execution, and Force Gating selects between force-blind and force-aware policies with full action support. SPECTRA jointly selects sensing and motion detail through a force-blind low-frequency policy and a force-conditioned full-spectrum policy. Ablations remove coefficient-wise spectral normalization and cross force conditioning with low-frequency and full-spectrum prediction to assess normalization and bandwidth-dependent force benefits. We also compare learned routing with fixed, random, force-threshold, and contact-triggered selection, holding the coarse and fine policies fixed.",
+      "source_text": "We evaluate SPECTRA on four ManiSkill Mu et al. (2021) tasks (PegInsertionSide, PickCube, PlugCharger, and StackCube) and two MimicGen tasks (Coffee and Threading). Each task uses 100 demonstration episodes: 50 for policy training and 50 for gate calibration. Both suites run in MuJoCo, with ManiSkill tasks adapted to this simulator. Force-aware policies receive three-axis force and torque measurements from a simulated sensor between the arm and parallel-jaw gripper; MimicGen measurements are recovered by restoring recorded simulator states. ManiSkill additionally sums the 3D force magnitudes over all gripper contacts using mj_contactForce, giving seven force-related channels versus six for MimicGen. We report task success rates on independently generated scene configurations. We compare Diffusion Policy (DP) and flow matching (FM) in action and DCT space (Table 1). For each configuration, No Force uses vision and proprioception, Always-on Force adds force throughout execution, and Force Gating selects between force-blind and force-aware policies with full action support. SPECTRA jointly selects sensing and motion detail through a force-blind low-frequency policy and a force-conditioned full-spectrum policy. Ablations remove coefficient-wise spectral normalization and cross force conditioning with low-frequency and full-spectrum prediction to assess normalization and bandwidth-dependent force benefits. We also compare learned routing with fixed, random, force-threshold, and contact-triggered selection, holding the coarse and fine policies fixed.",
       "excerpts": [
         [
+          "We evaluate SPECTRA",
+          "two MimicGen tasks (Coffee and Threading)."
+        ],
+        [
           "We compare Diffusion Policy",
-          "policies with full action support."
+          "in action and DCT space (Table 1)."
         ]
       ],
-      "text": "We compare Diffusion Policy (DP) and flow matching (FM) in action and DCT space. For each configuration, No Force uses vision and proprioception, Always-on Force adds force throughout execution, and Force Gating selects between force-blind and force-aware policies with full action support.",
+      "text": "We evaluate SPECTRA on four ManiSkill (Mu et al., 2021) tasks (PegInsertionSide, PickCube, PlugCharger, and StackCube) and two MimicGen tasks (Coffee and Threading). We compare Diffusion Policy (DP) and flow matching (FM) in action and DCT space.",
+      "citation_corrections": [
+        [
+          "ManiSkill Mu et al. (2021) tasks",
+          "ManiSkill (Mu et al., 2021) tasks"
+        ]
+      ],
       "text_corrections": [
         [
           " (Table 1)",

@@ -173,12 +173,10 @@ architecture+=paragraph((1,688,734),(2,285,341),(3,605,630),(5,153,209),excerpts
     ('The coarse policy predicts','predicts the full action spectrum.'),
     ('A gate uses recent force history','without manually labeled contact phases.'),
     ('This allows policy selection','as the interaction unfolds.')])
-simulation=paragraph((5,382,482),excerpts=[
+simulation=paragraph((5,382,482),(5,505,594),excerpts=[
     ('We evaluate SPECTRA','two MimicGen tasks (Coffee and Threading).'),
-    ('We report task success rates','independently generated scene configurations.')],
-    citation_corrections=[('ManiSkill Mu et al. (2021) tasks','ManiSkill (Mu et al., 2021) tasks')])
-simulation+=paragraph((5,505,594),excerpts=[
-    ('We compare Diffusion Policy','policies with full action support.')],
+    ('We compare Diffusion Policy','in action and DCT space (Table 1).')],
+    citation_corrections=[('ManiSkill Mu et al. (2021) tasks','ManiSkill (Mu et al., 2021) tasks')],
     text_corrections=[(' (Table 1)','')])
 simulation+=figure('policy-architectures',6,[108,84,505,202],[436,458],
     alt='(a) No force; (b) Always-on force; (c) Force gating; (d) SPECTRA')
